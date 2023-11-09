@@ -46,6 +46,9 @@ public class YeomanMojo extends AbstractMojo {
 
     @Parameter(defaultValue = "false", required = false)
     boolean useNpmCache;
+    
+    @Parameter(defaultValue = "false", required = false)
+    boolean useYarn;
 
     @Parameter( defaultValue = "install", required = true )
     String npmInstallArgs;
@@ -152,6 +155,10 @@ public class YeomanMojo extends AbstractMojo {
 
     	if(useNpmCache) {
     		npmExecutor = "npm-cache ";
+    	}
+    	
+        if(useYarn) {
+    		npmExecutor = "yarn ";
     	}
 
 		return npmExecutor;
